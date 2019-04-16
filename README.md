@@ -16,8 +16,13 @@ batch-size=20
 
 В качестве лингвистической модели был использовал KenLm https://github.com/kpu/kenlm  
 Модель строилась по датасету http://mattmahoney.net/dc/text8.zip  
+для получения корректной модели необходимо перевести текстовый файл в uppercase, затем выполнить   
+`bin/lmplz -o 5 -S 80% -T /tmp <../../text8_upper >text_5gram.arpa`
+
 Итоговая модель в формате ARPA https://yadi.sk/d/yqHccjREzlkSWw  
 бинарный файл модели https://yadi.sk/d/Jvr4dFkxe5PWxA  
+для создания бинарного файла:  
+`bin/build_binary -s text_5gram.arpa text_5gram.binary `
 
 для использования лингвистической модели в DeepSpeech2:  
 `python test.py --model-path models/deepspeech_final.pth --test-manifest data/voxforge_validation_manifest.csv --cuda --verbose --lm-path ../kenlm/build/text_5gram.binary  --decoder beam`
