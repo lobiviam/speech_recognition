@@ -4,11 +4,11 @@
 
 В качестве обучающего датасета использовался VoxForge. Датасет был разделен на обучающую и тестовую части.
 
->параметры при обучении модели:
->hidden-layers=5
->epochs=20
->batch-size=20
->Обученная модель доступна по ссылке https://yadi.sk/d/I5lCZ9mvN7DF8g
+параметры при обучении модели:  
+hidden-layers=5  
+epochs=20  
+batch-size=20  
+Обученная модель доступна по ссылке https://yadi.sk/d/I5lCZ9mvN7DF8g  
 
 для оценки точности модели: 
 python test.py --model-path models/deepspeech_final.pth --test-manifest data/voxforge_validation_manifest.csv --cuda --verbose
